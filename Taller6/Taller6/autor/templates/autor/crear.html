@@ -1,0 +1,17 @@
+<h1>Crear Nuevo Autor</h1>
+<form method="POST">
+ {% csrf_token %}
+ 
+ <label for="nombre">Nombre:</label><br>
+ <input type="text" id="nombre" name="nombre" required><br><br>
+ 
+ <label for="apellido">Apellido:</label><br>
+ <input type="text" id="apellido" name="apellido" required><br><br>
+ 
+ <label for="fecha_nacimiento">Fecha de Nacimiento (AAAA-MM-DD):</label><br>
+ <input type="date" id="fecha_nacimiento" 
+name="fecha_nacimiento"><br><br>
+ 
+ <input type="submit" value="Guardar Autor">
+</form>
+<a href="{% url 'lista_autores' %}">Cancelar</a>

@@ -1,0 +1,12 @@
+<h1>Detalle del Libro</h1>
+<h2>{{ libro.titulo }}</h2>
+<ul>
+ <li>Autor: <a href="{% url 'autor-detail' libro.autor.pk %}">{{ libro.autor }}</a></li>
+ <li>ISBN: {{ libro.isbn }}</li>
+ <li>Fecha de Publicación: {{ libro.fecha_publicacion|default:"N/A" }}</li>
+</ul>
+<p>
+ <a href="{% url 'libro-update' libro.pk %}">Editar Libro</a> |
+ <a href="{% url 'libro-delete' libro.pk %}">Eliminar Libro</a> |
+ <a href="{% url 'libro-list' %}">Volver a la lista</a>
+</p>

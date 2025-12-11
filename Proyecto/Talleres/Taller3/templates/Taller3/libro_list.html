@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{# 1. Sobrescribir el título #}
+{% block title %}David{% endblock %}
+{# 2. Sobrescribir el contenido principal #}
+{% block content %}
+
+<h1>Lista de Libros</h1>  
+<p><a href="{% url 'libro_create' %}">Añadir Nuevo Libro</a></p>  
+{% for elemento in libro %}  
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">  
+        <h2><a href="{% url 'libro_detail' pk=elemento.pk %}">{{ elemento.titulo }}</a></h2>  
+        <p>Autor: {{ elemento.autor }}</p>  
+        <p>  
+            <a href="{% url 'libro_update' pk=elemento.pk %}">Editar</a> |  
+            <a href="{% url 'libro_delete' pk=elemento.pk %}">Eliminar</a>  
+        </p>  
+    </div>  
+{% empty %}  
+    <p>No hay libros en la biblioteca.</p>  
+{% endfor %}  
+
+{% endblock content %}

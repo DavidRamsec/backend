@@ -1,0 +1,20 @@
+<h1>Lista de Libros</h1>
+<p><a href="{% url 'libro-create' %}">Crear Nuevo Libro</a></p>
+{% if object_list %}
+ <ul>
+ {% for libro in object_list %}
+ <li>
+ <strong>{{ libro.titulo }}</strong> (ISBN: {{ libro.isbn }})
+ por <a href="{% url 'autor-detail' libro.autor.pk %}">{{ libro.autor }}</a>
+ <br>
+ [ <a href="{% url 'libro-detail' libro.pk %}">Ver Detalle</a> |
+ <a href="{% url 'libro-update' libro.pk %}">Editar</a> |
+ <a href="{% url 'libro-delete' libro.pk %}">Eliminar</a> ]
+ </li>
+ {% endfor %}
+ </ul>
+{% else %}
+ <p>No hay libros registrados.</p>
+{% endif %}
+<hr>
+<a href="{% url 'autor-list' %}">Ir a la Lista de Autores</a>

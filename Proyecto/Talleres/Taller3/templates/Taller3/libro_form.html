@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{# 1. Sobrescribir el título #}
+{% block title %}David{% endblock %}
+{# 2. Sobrescribir el contenido principal #}
+{% block content %}
+
+{% if form.instance.pk %}
+ <h1>Editar Libro</h1>
+{% else %}
+ <h1>Crear Nuevo Libro</h1>
+{% endif %}
+<form method="post">
+ {% csrf_token %}
+ {{ form.as_p }}
+ {% if form.instance.pk %}
+ <button type="submit">Guardar</button>
+ <a href="{% url 'libro_list' %}">Cancelar</a>
+ {% else %}
+ <button type="submit">Guardar</button>
+ {% endif %}
+</form>
+
+{% endblock content %}

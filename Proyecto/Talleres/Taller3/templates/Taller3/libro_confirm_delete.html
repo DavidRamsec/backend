@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{# 1. Sobrescribir el título #}
+{% block title %}David{% endblock %}
+{# 2. Sobrescribir el contenido principal #}
+{% block content %}
+
+<h1>Confirmar Eliminación</h1>
+<p>¿Estás seguro de que quieres eliminar el libro **"{{ object.titulo }}"**?</p>
+<form method="post">
+ {% csrf_token %}
+ <button type="submit">Confirmar</button>
+ <a href="{% url 'libro_list' %}">Cancelar</a>
+</form>
+
+{% endblock content %}

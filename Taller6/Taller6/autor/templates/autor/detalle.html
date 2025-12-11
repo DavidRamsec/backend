@@ -1,0 +1,3 @@
+<h1>Detalles de Autor: {{ autor.nombre }} {{ autor.apellido }}</h1>
+<p>Fecha de Nacimiento: {{ autor.fecha_nacimiento|default:"No especificada" }}</p>
+<a href="{% url 'lista_autores' %}">Volver a la lista</a>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <title>{% block title %}Mi Aplicación Django{% endblock %}</title>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Saltar a contenido
+        principal</a>
+    <header role="banner">
+        <h1>Mi Aplicación</h1>
+        <nav aria-label="Navegación principal"> <a href="/" ariacurrent="page">Inicio</a>
+            |
+            <a href="/acerca/">Acerca de</a>
+        </nav>
+    </header>
+    <main id="main-content" role="main" tabindex="-1">
+        {% block content %}
+        {# Este es el bloque principal donde irá el contenido único
+        de cada página #}
+
+        {% endblock content %}
+    </main>
+    <footer>
+        <p>
+            &copy; 2025 Mi App. Todos los derechos reservados.
+            <span role="contentinfo">Información de derechos de autor y
+                contacto.</span>
+        </p>
+    </footer>
+    {# Bloque para scripts al final del body #}
+    {% block scripts %}{% endblock scripts %}
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{# 1. Sobrescribir el título #}
+{% block title %}David{% endblock %}
+{# 2. Sobrescribir el contenido principal #}
+{% block content %}
+
+<h1>Detalle del Libro: {{ object.titulo }}</h1>
+<p>Autor: {{ object.autor }}</p>
+<p>Fecha de Publicación: {{ object.fecha_publicacion }}</p>
+<p><a href="{% url 'libro_list' %}">Volver a la lista</a></p>
+
+{% endblock content %}

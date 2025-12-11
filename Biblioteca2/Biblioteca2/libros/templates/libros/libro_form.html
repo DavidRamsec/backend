@@ -1,0 +1,10 @@
+{% if libro %}
+ <h1>Editar Libro: {{ libro.titulo }}</h1>
+{% else %}
+ <h1>Crear Nuevo Libro</h1>
+{% endif %}
+<form method="post">
+ {% csrf_token %}
+ {{ form.as_p }} <button type="submit">Guardar</button>
+</form>
+<p><a href="{% url 'libro-list' %}">Cancelar y volver a la lista</a></p>

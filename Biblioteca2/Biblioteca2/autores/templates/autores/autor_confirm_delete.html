@@ -1,0 +1,7 @@
+<h1>Confirmar Eliminación</h1>
+<p>¿Estás seguro de que quieres eliminar al autor: <strong>{{ autor.nombre }} {{ autor.apellido }}</strong>?</p>
+<form method="post">
+ {% csrf_token %}
+ <input type="submit" value="Sí, eliminar" style="color: red;">
+ <a href="{% url 'autor-detail' autor.pk %}">No, cancelar</a>
+</form>

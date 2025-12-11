@@ -1,0 +1,7 @@
+<h1>Confirmar Borrado</h1>
+<p>¿Estás seguro que quieres eliminar a **{{ autor.nombre }} {{ autor.apellido }}**?</p>
+<form method="POST">
+ {% csrf_token %}
+ <input type="submit" value="Sí, Eliminar">
+</form>
+<a href="{% url 'detalle_autor' autor.id %}">Cancelar</a>

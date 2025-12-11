@@ -1,0 +1,21 @@
+<h1>Detalle del Autor</h1>
+<h2>{{ autor.nombre }} {{ autor.apellido }}</h2>
+<ul>
+ <li>Fecha de Nacimiento: {{ autor.fecha_nacimiento|default:"N/A" }}</li>
+</ul>
+<h3>Libros Publicados:</h3>
+{% if autor.libro_set.all %}
+ <ul>
+ {% for libro in autor.libro_set.all %}
+ <li><a href="{% url 'libro-detail' libro.pk %}">{{ libro.titulo }}</a>
+(ISBN: {{ libro.isbn }})</li>
+ {% endfor %}
+ </ul>
+{% else %}
+ <p>Este autor no tiene libros registrados en el sistema.</p>
+{% endif %}
+<p>
+ <a href="{% url 'autor-update' autor.pk %}">Editar Autor</a> |
+ <a href="{% url 'autor-delete' autor.pk %}">Eliminar Autor</a> |
+ <a href="{% url 'autor-list' %}">Volver a la lista</a>
+</p>
