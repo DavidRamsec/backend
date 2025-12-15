@@ -17,4 +17,8 @@ name='editar_autor'),
  # DELETE
  path('<int:autor_id>/borrar/', views.borrar_autor,
 name='borrar_autor'),
+ 
+ # UPDATE
+ path('<int:autor_id>/tratar/', views.tratar_autor,
+name='tratar_autor'),
 ]

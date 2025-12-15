@@ -65,3 +65,34 @@ def borrar_autor(request, autor_id):
 
  # Usaremos el mismo template para confirmar la eliminación
  return render(request, 'autor/confirmar_borrar.html', {'autor': autor})
+
+def tratar_autor(request, autor_id):
+   if(autor_id):
+      autor = get_object_or_404(Autor, pk=autor_id)
+      if request.method == 'POST':
+         autor.nombre = request.POST.get('nombre')
+         autor.apellido = request.POST.get('apellido')
+         fecha_nacimiento = request.POST.get('fecha_nacimiento')
+
+         # Guardamos el objeto actualizado
+         if autor.nombre and autor.apellido:
+            autor.fecha_nacimiento = fecha_nacimiento if fecha_nacimiento else None
+            autor.save()
+            return redirect('detalle_autor', autor_id=autor.id)
+      return render(request, 'autor/mi_editar.html', {'autor': autor})
+   else:
+      if request.method == 'POST':
+         # Accedemos a los datos directamente del diccionario request.POST
+         nombre = request.POST.get('nombre')
+         apellido = request.POST.get('apellido')
+         fecha_nacimiento = request.POST.get('fecha_nacimiento')
+         # Simple validación (debería ser más robusta en producción)
+         if nombre and apellido:
+            Autor.objects.create(
+            nombre=nombre,
+            apellido=apellido,
+            fecha_nacimiento=fecha_nacimiento if fecha_nacimiento
+               else None
+            )
+            return redirect('lista_autores') # Redirigir a la lista después de crear
+      return render(request, 'autor/mi_editar.html')
