@@ -1,0 +1,17 @@
+<h1>Crear Nuevo Libro</h1>
+<form method="POST">
+ {% csrf_token %}
+ 
+ <label for="titulo">Titulo:</label><br>
+ <input type="text" id="titulo" name="titulo" required><br><br>
+ 
+ <label for="autor">Autor:</label><br>
+ <input type="text" id="autor" name="autor" required><br><br>
+ 
+ <label for="fecha_publicacion">Fecha de Publicacion (AAAA-MM-DD):</label><br>
+ <input type="date" id="fecha_publicacion" 
+name="fecha_publicacion"><br><br>
+ 
+ <input type="submit" value="Guardar Libro">
+</form>
+<a href="{% url 'lista_libros' %}">Cancelar</a>

@@ -20,4 +20,5 @@ urlpatterns = [
  path('admin/', admin.site.urls),
  # Incluye todas las rutas de la app 'Taller3' bajo el prefijo ' Taller3/'
  path('Taller6/', include('autor.urls')),
+ path('Taller6/', include('Libros.urls')),
 ] 

@@ -1,0 +1,18 @@
+<h1>Editar Libro: {{ libro.titulo }}</h1>
+<form method="POST">
+ {% csrf_token %}
+ 
+ <label for="titulo">Libro:</label><br>
+ <input type="text" id="titulo" name="titulo" value="{{ libro.titulo }}" required><br><br>
+ 
+ <label for="autor">Autor:</label><br>
+ <input type="text" id="autor" name="autor" value="{{ libro.autor }}" required><br><br>
+ 
+ <label for="fecha_publicacion">Fecha de Publicacion (AAAA-MM-DD):</label><br>
+ <input type="date" id="fecha_publicacion" 
+name="fecha_publicacion" 
+ value="{{ libro.fecha_publicacion|date:'Y-m-d'|default:'' }}"><br><br>
+ 
+ <input type="submit" value="Actualizar Libro">
+</form>
+<a href="{% url 'detalle_libro' libro.id %}">Cancelar</a>

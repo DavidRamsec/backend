@@ -1,0 +1,27 @@
+<h1>Lista de Autores</h1>
+<p><a href="{% url 'autor_create' %}"> Añadir Nuevo Autor</a></p>
+{% if autores %}
+ <table border="1">
+ <thead>
+ <tr>
+ <th>Nombre Completo</th>
+ <th>Fecha de Nacimiento</th>
+ <th>Acciones</th>
+ </tr>
+ </thead>
+ <tbody>
+ {% for autor in autores %}
+ <tr>
+ <td>{{ autor.nombre }} {{ autor.apellido }}</td>
+ <td>{{ autor.fecha_nacimiento|default:"N/A" }}</td>
+ <td>
+ <a href="{% url 'autor_update' autor.pk %}">Editar</a> |
+ <a href="{% url 'autor_delete' autor.pk %}">Eliminar</a>
+ </td>
+ </tr>
+ {% endfor %}
+ </tbody>
+ </table>
+{% else %}
+ <p>No hay autores registrados.</p>
+{% endif %}

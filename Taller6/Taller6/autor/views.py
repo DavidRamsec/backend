@@ -66,7 +66,8 @@ def borrar_autor(request, autor_id):
  # Usaremos el mismo template para confirmar la eliminación
  return render(request, 'autor/confirmar_borrar.html', {'autor': autor})
 
-def tratar_autor(request, autor_id):
+def tratar_autor(request, autor_id=None):
+   print(autor_id)
    if(autor_id):
       autor = get_object_or_404(Autor, pk=autor_id)
       if request.method == 'POST':

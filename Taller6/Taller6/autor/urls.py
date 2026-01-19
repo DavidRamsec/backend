@@ -18,7 +18,11 @@ name='editar_autor'),
  path('<int:autor_id>/borrar/', views.borrar_autor,
 name='borrar_autor'),
  
+ # CREATE
+ path('tratar/', views.tratar_autor,
+name='tratar_autor'),
+ 
  # UPDATE
- path('<int:autor_id>/tratar/', views.tratar_autor,
+ path('tratar/<int:autor_id>/', views.tratar_autor,
 name='tratar_autor'),
 ]

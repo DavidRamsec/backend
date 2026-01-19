@@ -3,6 +3,7 @@
 <ul>
  {% for autor in autores %}
  <li>
+    
  <a href="{% url 'detalle_autor' autor.id %}">{{ autor.nombre }} {{ autor.apellido }}</a>
  - <a href="{% url 'tratar_autor' autor.id %}">Editar</a>
  - <a href="{% url 'borrar_autor' autor.id %}">Borrar</a>
